@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  nextjs:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - ./nextjs:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - golang
+
+  golang:
+    image: golang:1.16
+    working_dir: /app
+    volumes:
+      - ./golang:/app
+    ports:
+      - "8080:8080"
+    command: sh -c "go run main.go"
