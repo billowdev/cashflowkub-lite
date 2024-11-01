@@ -1,0 +1,2 @@
+# cashflowkub-lite
+pocketbase
